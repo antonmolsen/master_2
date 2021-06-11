@@ -18,7 +18,14 @@ def displayMenu(options):
         print("{:d}. {:s}".format(i+1, options[i]))
 
     choice = 0
-    while not(np.any(choice == np.arange(len(options))+1)):
-        choice = inputNumber("Please choose a menu item: ")
+    while True:
+        try:
+            choice = inputNumber("Please choose a menu item: ")
+            if(choice == 0):
+                break
+            if(not(np.any(choice == np.arange(len(options))+1))):
+                raise
+        except:
+            print('Please those a number from the list')
 
     return choice
