@@ -33,13 +33,38 @@ while True:
         # load data from txt
         data_raw = input("Please enter the file you want to read (remember extension of file)")
         data = dataLoad(data_raw)
-        print("data successfully imported. ")
-        break
+        print("data successfully imported.")
+
 
     if choice == 2:  # 2 Filter data
-        filter_choice = input("What do you wish to filter?")
         # menuitems
         subMenuItems = np.array(["Filter by bacteria type", "Filter by bounds of growth rate"])
+        # 1 Filter by bacteria type
+        # 2 Filter by bounds of growth rate
+
+        filter_choice = displayMenu(subMenuItems)
+
+        #choice of filter
+        if filter_choice == 1:
+            print("you chose bacteria type filter. which bacteria do you wish to research")
+            subSubMenuItems = np.array(["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
+
+            chosen_bacteria = displayMenu(subSubMenuItems)
+            if chosen_bacteria == 1:
+                chosen_bacteria = "Salmonella enterica"
+            if chosen_bacteria == 2:
+                chosen_bacteria == "Bacillus cereus"
+            if chosen_bacteria == 3:
+                chosen_bacteria = "Listeria"
+            if chosen_bacteria == 4:
+                chosen_bacteria = "Brochothrix thermosphacta"
+
+            data = dataFilterBacteria(data,chosen_bacteria)
+
+    if choice == 5:
+        quit()
+
+
 
 
 dat = dataLoad("test.txt")
