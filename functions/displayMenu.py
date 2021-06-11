@@ -23,7 +23,7 @@ def displayMenu(options):
             choice = inputNumber("Please choose a menu item: ")
             if(choice == 0):
                 break
-            if(not(np.any(choice == np.arange(len(options))+1))):
+            elif(not(np.any(choice == np.arange(len(options))+1))):
                 raise
         except:
             print('Please those a number from the list')
