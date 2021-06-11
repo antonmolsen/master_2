@@ -28,7 +28,7 @@ def dataStatistics(data, statistic):
     elif statistic == 4:#"Std Growth rate":
         result = np.std(g_rate, dtype=np.float64)
     
-    elif statistic == 4:#"Rows":
+    elif statistic == 5:#"Rows":
         #no. rows
         result = len(data[:,0])
         

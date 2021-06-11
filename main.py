@@ -29,7 +29,7 @@ menuItems = np.array(["Load data", "Filter data", "Show statistics", "Generate p
 while True:
     choice = displayMenu(menuItems)
     try:
-        if np.any(choice == np.arange(2, len(options))+1)) and np.size(data) == 0:
+        if choice>1 and (np.size(data) == 0):
             raise
 
         # menu item chosen
@@ -77,14 +77,14 @@ while True:
         if choice == 3:  # show statistics
             statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature",
                                       "Std Growth rate", "Rows", "Mean Cold Growth rate", "Mean Hot Growth rate"])
-            statChoice = displayMenu(statMenuItems)
-            print('{} is {}.'.format(statMenuItems[statChoice - 1], dataStatistics(data, statChoice)))
+            statChoice = int(displayMenu(statMenuItems))
+            print("The {} is {}.".format(statMenuItems[statChoice - 1], dataStatistics(data, statChoice)))
 
         if choice == 4:
-            dataPlot(data)
-            print("Plots created succesfully")
+           dataPlot(data)
+           print("Plots created succesfully")
 
         if choice == 5:
-            break
+           break
     except:
-        print('Import please a data file.')
+        print('Please load data before researching data')
