@@ -10,6 +10,9 @@ import pandas as pd
 
 
 def dataFilterGrowthRate(data, lowerBound, upperBound):
+    # Takes the current data array and sorts it by what is inputtet as
+    # acceptable upper and lower bounds. Returns the sortet array.
+
     growth_collumn = np.array(data)[:, 1]
 
     accepted_rates = (growth_collumn > lowerBound) & (growth_collumn < upperBound)
