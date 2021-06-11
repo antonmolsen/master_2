@@ -22,25 +22,17 @@ menuItems = np.array(["Load data", "Filter data", "Show statistics", "Generate p
 # 4 Generate Plot
 # 5 Exit
 
-while True :
+while True:
     choice = displayMenu(menuItems)
 
-    #menu item chosen
+    # menu item chosen
     if choice == 1:
         # load data from txt
         data = input("Please enter the file you want to read (remember extension of file)")
-
-
-
-
-hej
-
-hej 2
-
 
 
 dat = dataLoad("test.txt")
 
 dataPlot(dat)
 
-print(dataFilterBacteria(dat,"Brochothrix thermosphacta"))
+print(dataFilterBacteria(dat, "Brochothrix thermosphacta"))

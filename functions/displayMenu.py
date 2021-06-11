@@ -1,10 +1,12 @@
 import numpy as np
+
+
 def inputNumber(prompt):
     while True:
         try:
             num = float(input(prompt))
             break
-        except ValueError :
+        except ValueError:
             pass
 
     return num
