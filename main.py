@@ -14,6 +14,7 @@ import matplotlib as plt
 from functions.displayMenu import *
 from functions.dataLoad import dataLoad
 from functions.dataFilterBacteria import dataFilterBacteria
+from functions.dataFilterGrowthRate import dataFilterGrowthRate
 from functions.dataStatistics import dataStatistics
 from functions.dataPlot import dataPlot
 
@@ -73,6 +74,13 @@ while True:
                     chosen_bacteria = "Brochothrix thermosphacta"
 
                 data = dataFilterBacteria(data, chosen_bacteria)
+
+            if filter_choice == 2:
+                lowerBound = float(input("Please enter the lower bound"))
+                upperBound = float(input("Please enter the upper bound"))
+
+                data = dataFilterGrowthRate(data, lowerBound, upperBound)
+                print(data)
 
         if choice == 3:  # show statistics
             statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature",

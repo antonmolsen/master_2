@@ -34,7 +34,6 @@ def dataPlot(data):
     plt.show()
 
     # growth rate by temperature plot
-
     x_sal = sal[:, 0]
     x_bac = bac[:, 0]
     x_lis = lis[:, 0]
