@@ -39,7 +39,7 @@ while True :
     if choice == 2: # 2 Filter data
         filter_choice = input("What do you wish to filter?")
         # menuitems
-        subMenuItems =
+        subMenuItems = np.array(["Filter by bacteria type", "Filter by bounds of growth rate"])
 
 
 
