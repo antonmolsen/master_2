@@ -31,6 +31,7 @@ def dataPlot(data):
     plt.xticks(x, ["Salmonella \n enterica", "Bacillus \n cereus", "Listeria", "Brochothrix \n thermosphacta"])
     plt.tight_layout()
     plt.show()
+
     # growth rate by temperature plot
 
     x_sal = sal[:, 0]
