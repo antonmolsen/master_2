@@ -9,6 +9,7 @@ Created on Mon Jun  7 22:15:28 2021
 # we start by importing our modules
 
 import numpy as np
+import matplotlib as plt
 
 from functions.displayMenu import *
 from functions.dataLoad import dataLoad
@@ -31,8 +32,18 @@ while True:
     # menu item chosen
     if choice == 1:
         # load data from txt
-        data = dataLoad(input("Please enter the file you want to read (remember extension of file)"))
-        print("data successfully imported.")
+        while True:
+            try:
+                dataTemp = input(
+                    "Please enter the file you want to read (remember extension of file)")
+                if dataTemp == '':
+                    print('Returning to menu.')
+                    break
+                data = dataLoad(dataTemp)
+                print('Errornous data removed.')
+                break
+            except FileNotFoundError:
+                print('File could not be found.')
 
     if choice == 2:  # 2 Filter data
         # menuitems
@@ -42,10 +53,11 @@ while True:
 
         filter_choice = displayMenu(subMenuItems)
 
-        #choice of filter
+        # choice of filter
         if filter_choice == 1:
             print("you chose bacteria type filter. which bacteria do you wish to research")
-            subSubMenuItems = np.array(["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
+            subSubMenuItems = np.array(
+                ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
 
             chosen_bacteria = displayMenu(subSubMenuItems)
             if chosen_bacteria == 1:
@@ -57,13 +69,12 @@ while True:
             if chosen_bacteria == 4:
                 chosen_bacteria = "Brochothrix thermosphacta"
 
-            data = dataFilterBacteria(data,chosen_bacteria)
+            data = dataFilterBacteria(data, chosen_bacteria)
 
     if choice == 3:
         r
     if choice == 4:
-        r
+        dataPlot(data)
 
     if choice == 5:
         break
-
