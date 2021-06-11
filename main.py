@@ -3,7 +3,7 @@
 """
 Created on Mon Jun  7 22:15:28 2021
 
-@author: antonmolsen & nicolai kongstad
+@author: antonmolsen & nicolaikongstad
 """
 
 # we start by importing our modules
@@ -71,8 +71,14 @@ while True:
 
             data = dataFilterBacteria(data, chosen_bacteria)
 
-    if choice == 3:
-        r
+    if choice == 3: # show statistics
+
+        statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature", "Std Growth rate", "Rows", "Mean Cold Growth rate", "Mean Hot Growth rate"])
+        statChoice = displayMenu(statMenuItems)
+
+        print(dataStatistics(data, statChoice))
+
+
     if choice == 4:
         dataPlot(data)
 
