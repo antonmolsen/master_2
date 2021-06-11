@@ -26,6 +26,7 @@ def displayMenu(options):
             elif(not(np.any(choice == np.arange(len(options))+1))):
                 raise
             break
+
         except:
             print('Please those a number from the list')
 
