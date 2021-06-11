@@ -31,10 +31,8 @@ while True:
     # menu item chosen
     if choice == 1:
         # load data from txt
-        data_raw = input("Please enter the file you want to read (remember extension of file)")
-        data = dataLoad(data_raw)
+        data = dataLoad(input("Please enter the file you want to read (remember extension of file)"))
         print("data successfully imported.")
-
 
     if choice == 2:  # 2 Filter data
         # menuitems
@@ -61,10 +59,11 @@ while True:
 
             data = dataFilterBacteria(data,chosen_bacteria)
 
+    if choice == 3:
+        r
+    if choice == 4:
+        r
+
     if choice == 5:
-        quit()
+        break
 
-
-
-
-dat = dataLoad("test.txt")
