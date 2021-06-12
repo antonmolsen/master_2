@@ -51,7 +51,7 @@ while True:
 
         if choice == 2:  # 2 Filter data
             # menuitems
-            subMenuItems=np.array(["Filter by bacteria type", "Filter by bounds of growth rate"])
+            subMenuItems=np.array(["Filter by bacteria type", "Filter by bounds of growth rate","Remove Filters"])
             # 1 Filter by bacteria type
             # 2 Filter by bounds of growth rate
 
@@ -80,7 +80,11 @@ while True:
                 upperBound = float(input("Please enter the upper bound"))
 
                 data = dataFilterGrowthRate(data, lowerBound, upperBound)
-                print(data)
+
+            #if filter_choice == 3: # remove filters
+
+
+
 
         if choice == 3:  # show statistics
             statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature",

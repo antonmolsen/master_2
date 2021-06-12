@@ -15,8 +15,8 @@ def dataFilterGrowthRate(data, lowerBound, upperBound):
 
     growth_collumn = np.array(data)[:, 1]
 
-    accepted_rates = (growth_collumn > lowerBound) & (growth_collumn < upperBound)
+    accepted_rates = (np.array(data)[:, 1] > lowerBound) & (np.array(data)[:, 1] < upperBound)
 
-    growth_rate_in_interval = growth_collumn[accepted_rates]
+    growth_rate_in_interval = data[accepted_rates]
 
     return growth_rate_in_interval
