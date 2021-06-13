@@ -6,11 +6,9 @@ Created on Mon Jun  7 22:15:28 2021
 @author: antonmolsen & nicolai kongstad
 """
 
-# we start by importing our modules
-
+#modules import
 import numpy as np
 import matplotlib as plt
-
 from functions.displayMenu import *
 from functions.dataLoad import dataLoad
 from functions.dataFilterBacteria import dataFilterBacteria
@@ -32,7 +30,6 @@ while True:
     try:
         if choice>1 and (np.size(data) == 0):
             raise
-
         # menu item chosen
         if choice == 1:
             # load data from txt
@@ -43,7 +40,8 @@ while True:
                     if dataTemp == '':
                         print('Returning to menu.')
                         break
-                    data=dataLoad(dataTemp)
+                    data = dataLoad(dataTemp)[0]
+                    org_data = dataLoad(dataTemp)[1] # for removal of filters, we go back to this original data set
                     print('Errornous data removed.')
                     break
                 except FileNotFoundError:
@@ -81,10 +79,9 @@ while True:
 
                 data = dataFilterGrowthRate(data, lowerBound, upperBound)
 
-            #if filter_choice == 3: # remove filters
-
-
-
+            if filter_choice == 3: # remove filters
+                data = org_data
+                print("Filters removed succesfully")
 
         if choice == 3:  # show statistics
             statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature",

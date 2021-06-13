@@ -53,5 +53,6 @@ def dataLoad(filename):
             print("Error in line", i+1, ", not enough information")
 
     data = np.delete(data, 0, axis=0)  # removal of inital [0,0,0] array
+    org_data = data
 
-    return data
+    return data, org_data
