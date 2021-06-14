@@ -24,9 +24,9 @@ def dataPlot(data):
     y = [np.size(sal[:,0]),np.size(bac[:,0]),np.size(lis[:,0]),np.size(bro[:,0])]
 
     plt.bar(x,y,color=[c_sal,c_bac,c_lis,c_bro])
-    plt.title("Number of each type of bacteria")
-    plt.xlabel("Bacteria")
-    plt.ylabel("No. bacteria")
+    plt.title("Number of each type of bacteria", fontsize = 20)
+    plt.xlabel("Bacteria", fontsize = 18)
+    plt.ylabel("No. bacteria", fontsize = 18)
     plt.xticks(x, ["Salmonella \n enterica", "Bacillus \n cereus", "Listeria", "Brochothrix \n thermosphacta"])
     plt.tight_layout()
     plt.show()
@@ -47,9 +47,9 @@ def dataPlot(data):
     plt.plot(x_lis, y_lis, "o",color = c_lis, label = "Listeria")
     plt.plot(x_bro, y_bro, "*",color = c_bro, label = "Brochothrix \nthermosphacta")
 
-    plt.title("Growth rate vs temperature")
-    plt.xlabel("Temperature")
-    plt.ylabel("Growth rate")
+    plt.title("Growth rate vs temperature",fontsize = 20)
+    plt.xlabel("Temperature", fontsize = 18)
+    plt.ylabel("Growth rate", fontsize = 18)
     plt.ylim([0,1.2])
     plt.legend(loc = "upper left",ncol = 2)
     plt.grid()
