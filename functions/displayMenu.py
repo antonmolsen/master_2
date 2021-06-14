@@ -31,3 +31,16 @@ def displayMenu(options):
             print('Please those a number from the list')
 
     return choice
+
+
+def inputString(promt, acceptable):
+    while(True):
+        try:
+            choice = input(promt)
+            for i in choice:
+                if not(i in acceptable):
+                    raise
+            break
+        except:
+            print('Please only choose numbers from the list.')
+    return choice
