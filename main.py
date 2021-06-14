@@ -51,7 +51,7 @@ while True:
         if choice == 2:  # 2 Filter data
             # menuitems
             subMenuItems = np.array(
-                ["Filter by bacteria type", "Filter by bounds of growth rate", "Remove Filters"])
+                ["Filter by bacteria type", "Filter by bounds of growth rate", "Remove Filters","Exit menu"])
             # 1 Filter by bacteria type
             # 2 Filter by bounds of growth rate
 
@@ -77,6 +77,9 @@ while True:
             if filter_choice == 3:  # remove filter
                 data = org_data
                 print("Filters removed succesfully")
+
+            if filter_choice == 4:
+                pass
 
         if choice == 3:  # show statistics
             statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature",
