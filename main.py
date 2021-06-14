@@ -3,7 +3,7 @@
 """
 Created on Mon Jun  7 22:15:28 2021
 
-@author: antonmolsen & nicolai kongstad
+@author: antonmolsen & nicolaikongstad
 """
 
 #modules import
@@ -57,10 +57,10 @@ while True:
 
             # choice of filter
             if filter_choice == 1:
-                print("you chose bacteria type filter. which bacteria do you wish to research")
-                subSubMenuItems=np.array(
-                    ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
+                print("Input comma-seperated list of bacterias you wish to research")
+                subSubMenuItems=np.array(["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
 
+                chosen_bacteria = displayMenu(subSubMenuItems)
                 data = dataFilterBacteria(data, chosen_bacteria)
 
             if filter_choice == 2:
@@ -84,7 +84,7 @@ while True:
            print("Plots created succesfully")
 
         if choice == 5:
-            print("program closed")
+            print("Program closed")
             break
     except:
         print('Please load data before researching data')
