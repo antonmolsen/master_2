@@ -94,6 +94,7 @@ while True:
            print("Plots created succesfully")
 
         if choice == 5:
-           break
+            print("program closed")
+            break
     except:
         print('Please load data before researching data')
