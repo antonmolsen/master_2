@@ -32,7 +32,7 @@ while True:
             raise
 
         # Menu item chosen
-        if choice == 1: # load data from txt
+        if choice == 1:  # load data from txt
             while True:
                 try:
                     dataTemp = input(
@@ -51,7 +51,7 @@ while True:
         if choice == 2:  # 2 Filter data
             # menuitems
             subMenuItems = np.array(
-                ["Filter by bacteria type", "Filter by bounds of growth rate", "Remove Filters","Exit menu"])
+                ["Filter by bacteria type", "Filter by bounds of growth rate", "Remove Filters", "Exit menu"])
             # 1 Filter by bacteria type
             # 2 Filter by bounds of growth rate
 
@@ -60,15 +60,16 @@ while True:
             # choice of filter
             if filter_choice == 1:
                 print("Input comma-seperated list of bacterias you wish to research")
-                subSubMenuItems = np.array(["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
+                subSubMenuItems = np.array(
+                    ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
 
                 for i in range(len(subSubMenuItems)):
                     print("{:d}. {:s}".format(i+1, subSubMenuItems[i]))
 
                 chosen_bacteria = inputString('Comma separated list: ', '1234,')
-                data = dataFilterBacteria(org_data, chosen_bacteria) #filters original data always
+                data = dataFilterBacteria(org_data, chosen_bacteria)  # filters original data always
 
-            if filter_choice == 2: # growth rate filter
+            if filter_choice == 2:  # growth rate filter
                 lowerBound = float(input("Please enter the lower bound"))
                 upperBound = float(input("Please enter the upper bound"))
 
@@ -85,14 +86,14 @@ while True:
             statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature",
                                       "Std Growth rate", "Rows", "Mean Cold Growth rate", "Mean Hot Growth rate"])
             statChoice = int(displayMenu(statMenuItems))
-            print("The {} is {}.".format(
+            print("The {} is {:.2f}.".format(
                 statMenuItems[statChoice - 1], dataStatistics(data, statChoice)))
 
-        if choice == 4: # plots data
+        if choice == 4:  # plots data
             dataPlot(data)
             print("Plots created succesfully")
 
-        if choice == 5: # exits program
+        if choice == 5:  # exits program
             print("Program closed")
             break
     except:
