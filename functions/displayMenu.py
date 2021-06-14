@@ -2,6 +2,8 @@ import numpy as np
 
 
 def inputNumber(prompt):
+    # The function takes a promt and forces the user to write a number.
+
     while True:
         try:
             num = float(input(prompt))
@@ -12,6 +14,10 @@ def inputNumber(prompt):
 
 
 def displayMenu(options):
+    # The function has the menu items as a numpy array as input. It displays
+    # the options and makes the user choose one of them. If the user inputs 0
+    # it exits the menu.
+
     for i in range(len(options)):
         print("{:d}. {:s}".format(i+1, options[i]))
 
@@ -32,6 +38,9 @@ def displayMenu(options):
 
 
 def inputString(promt, acceptable):
+    # The function takes a promt and a string of acceptable characters and
+    # checks if the user input is acceptable.
+
     while True:
         try:
             choice = input(promt)
