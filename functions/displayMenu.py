@@ -8,12 +8,10 @@ def inputNumber(prompt):
             break
         except ValueError:
             pass
-
     return num
 
 
 def displayMenu(options):
-
     for i in range(len(options)):
         print("{:d}. {:s}".format(i+1, options[i]))
 

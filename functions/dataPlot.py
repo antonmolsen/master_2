@@ -1,29 +1,27 @@
 # created by Anton Molsen 09 Jun
 
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 
 def dataPlot(data):
 
-    # we sort our data from lowest to highest temperature
+    # we sort our data from lowest to highest temperature (temp is on x-axis)
     data = data[np.argsort(data[:, 0])]
 
-    #first we plot out bacterias in a histogram
-    x = [1,2,3,4]
+    # consistent colors through plots
+    c_sal = "navy"
+    c_bac = "gold"
+    c_lis = "teal"
+    c_bro = "tomato"
 
-     # y data is the number of each bacteria
+    # Histogram plot
+    x = [1,2,3,4]
+    # y data is the number of each bacteria
     sal = data[(data[:,2] == 1)]
     bac = data[(data[:,2] == 2)]
     lis = data[(data[:,2] == 3)]
     bro = data[(data[:,2] == 4)]
     y = [np.size(sal[:,0]),np.size(bac[:,0]),np.size(lis[:,0]),np.size(bro[:,0])]
-
-    # consistent colors through plot
-    c_sal = "navy"
-    c_bac = "gold"
-    c_lis = "teal"
-    c_bro = "tomato"
 
     plt.bar(x,y,color=[c_sal,c_bac,c_lis,c_bro])
     plt.title("Number of each type of bacteria")

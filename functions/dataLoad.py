@@ -17,11 +17,9 @@ def dataLoad(filename):
     # The function loads in the data as a numpy array. The data is then
     # filtered so known bad data is removed.
 
-    # inital condition is that the data is accepted
+    # initial condition is that the data is accepted
     data = [0, 0, 0]
     read = True
-
-   # we read in our data
     temp_file = pd.read_csv(filename, header=None, delim_whitespace=True,
                             dtype=float)  # delimiter is whitespace
 
@@ -43,16 +41,15 @@ def dataLoad(filename):
                 read = False
                 print("Error in bacteria class in line", i+1, ", data removed")
 
-            if read:  # understand this as it is not NOT read, so therefore it is read
-                # we then stack i'th array on to the datastack
+            if read:  # we then stack i'th array on to the dataset
                 data = np.vstack((data, arr[i]))
 
             read = True  # we reset all to true when false ones arent read
 
-        else:  # if faulty row, it responds here
+        else:  # if one of the 3 parameters is missing, our error is printed form here.
             print("Error in line", i+1, ", not enough information")
 
-    data = np.delete(data, 0, axis=0)  # removal of inital [0,0,0] array
-    org_data = data
+    data = np.delete(data, 0, axis=0)  # removal of initial [0,0,0] array
+    org_data = data # original data. Is never changed in script
 
     return data, org_data

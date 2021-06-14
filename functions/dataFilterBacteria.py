@@ -15,7 +15,6 @@ def dataFilterBacteria(data, bacteria):  # bacteria is str
     # then it returns false.
 
     arr = np.array(data)
-
     bacteria_list = [0, 0, 0]
 
     for i in '1234':
@@ -24,6 +23,6 @@ def dataFilterBacteria(data, bacteria):  # bacteria is str
             accepted_bacteria = (int(i) == arr[:, 2])
             bacteria_list = np.vstack((bacteria_list, arr[accepted_bacteria]))
 
-    bacteria_list = np.delete(bacteria_list, 0, axis=0)  # removal of inital [0,0,0] array
+    bacteria_list = np.delete(bacteria_list, 0, axis=0)  # removal of initial [0,0,0]-array
 
     return bacteria_list

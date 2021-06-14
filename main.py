@@ -30,9 +30,9 @@ while True:
     try:
         if choice > 1 and (np.size(data) == 0):
             raise
-        # menu item chosen
-        if choice == 1:
-            # load data from txt
+
+        # Menu item chosen
+        if choice == 1: # load data from txt
             while True:
                 try:
                     dataTemp = input(
@@ -68,13 +68,13 @@ while True:
                 chosen_bacteria = inputString('Comma separated list: ', '1234,')
                 data = dataFilterBacteria(org_data, chosen_bacteria) #filters original data always
 
-            if filter_choice == 2:
+            if filter_choice == 2: # growth rate filter
                 lowerBound = float(input("Please enter the lower bound"))
                 upperBound = float(input("Please enter the upper bound"))
 
                 data = dataFilterGrowthRate(data, lowerBound, upperBound)
 
-            if filter_choice == 3:  # remove filters
+            if filter_choice == 3:  # remove filter
                 data = org_data
                 print("Filters removed succesfully")
 
@@ -85,11 +85,11 @@ while True:
             print("The {} is {}.".format(
                 statMenuItems[statChoice - 1], dataStatistics(data, statChoice)))
 
-        if choice == 4:
+        if choice == 4: # plots data
             dataPlot(data)
             print("Plots created succesfully")
 
-        if choice == 5:
+        if choice == 5: # exits program
             print("Program closed")
             break
     except:
