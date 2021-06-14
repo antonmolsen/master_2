@@ -6,7 +6,7 @@ Created on Mon Jun  7 22:15:28 2021
 @author: antonmolsen & nicolaikongstad
 """
 
-# modules import
+# Modules import
 import numpy as np
 import matplotlib as plt
 from functions.displayMenu import *
@@ -17,7 +17,7 @@ from functions.dataStatistics import dataStatistics
 from functions.dataPlot import dataPlot
 
 
-# menu items in main menu
+# Menu items in main menu
 menuItems = np.array(["Load data", "Filter data", "Show statistics", "Generate plot", "Exit"])
 # 1 Load data
 # 2 Filter data
@@ -80,9 +80,10 @@ while True:
                             raise
                         break
                     except:
-                        print("Your lower bound is greater than or equal to upper bound. Please enter valid bounds: ")
+                        print(
+                            "Your lower bound is greater than or equal to upper bound. Please enter valid bounds: ")
                 data = dataFilterGrowthRate(data, lowerBound, upperBound)
-                print("Growth rate filtered from {} to {}".format(lowerBound,upperBound))
+                print("Growth rate filtered from {} to {}".format(lowerBound, upperBound))
 
             if filter_choice == 3:  # remove filter
                 data = org_data
