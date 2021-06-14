@@ -9,30 +9,22 @@ import numpy as np
 import pandas as pd
 
 
-def dataFilterBacteria(data, bacteria):
+def dataFilterBacteria(data, bacteria): #bacteria is str
     # The function takes the name of a bateria and returns the data set with
     # every other bacteria sorted out. If the specified bateria isn't correct
     # then it returns false.
 
+
     arr = np.array(data)
 
-    if bacteria == "Salmonella enterica":
-        accepted_bacteria = (1 == arr[:, 2])
-        bacteria_list = arr[accepted_bacteria]
+    bacteria_list = [0,0,0]
 
-    elif bacteria == "Bacillus cereus":
-        accepted_bacteria = (2 == arr[:, 2])
-        bacteria_list = arr[accepted_bacteria]
+    for i in range(1,5):
 
-    elif bacteria == "Listeria":
-        accepted_bacteria = (3 == arr[:, 2])
-        bacteria_list = arr[accepted_bacteria]
+        if i in bacteria:
+            accepted_bacteria = (i == arr[:, 2])
+            bacteria_list = np.vstack((bacteria_list, arr[accepted_bacteria]))
 
-    elif bacteria == "Brochothrix thermosphacta":
-        accepted_bacteria = (4 == arr[:, 2])
-        bacteria_list = arr[accepted_bacteria]
-
-    else:
-        bacteria_list = False
+    bacteria_list = np.delete(bacteria_list, 0, axis=0)  # removal of inital [0,0,0] array
 
     return bacteria_list

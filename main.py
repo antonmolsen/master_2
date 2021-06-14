@@ -36,7 +36,7 @@ while True:
             while True:
                 try:
                     dataTemp=input(
-                        "Please enter the file you want to read (remember extension of file)")
+                        "Please enter the file you want to read. To go back, write nothing")
                     if dataTemp == '':
                         print('Returning to menu.')
                         break
@@ -60,16 +60,6 @@ while True:
                 print("you chose bacteria type filter. which bacteria do you wish to research")
                 subSubMenuItems=np.array(
                     ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
-
-                chosen_bacteria = displayMenu(subSubMenuItems)
-                if chosen_bacteria == 1:
-                    chosen_bacteria = "Salmonella enterica"
-                if chosen_bacteria == 2:
-                    chosen_bacteria == "Bacillus cereus"
-                if chosen_bacteria == 3:
-                    chosen_bacteria = "Listeria"
-                if chosen_bacteria == 4:
-                    chosen_bacteria = "Brochothrix thermosphacta"
 
                 data = dataFilterBacteria(data, chosen_bacteria)
 
