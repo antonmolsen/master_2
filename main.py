@@ -70,10 +70,19 @@ while True:
                 data = dataFilterBacteria(org_data, chosen_bacteria)  # filters original data always
 
             if filter_choice == 2:  # growth rate filter
-                lowerBound = float(input("Please enter the lower bound"))
-                upperBound = float(input("Please enter the upper bound"))
 
+                while True:
+                    try:
+                        lowerBound = inputNumber("Please enter the lower bound: ")
+                        upperBound = inputNumber("Please enter the upper bound: ")
+
+                        if (lowerBound >= upperBound):
+                            raise
+                        break
+                    except:
+                        print("Your lower bound is greater than or equal to upper bound. Please enter valid bounds: ")
                 data = dataFilterGrowthRate(data, lowerBound, upperBound)
+                print("Growth rate filtered from {} to {}".format(lowerBound,upperBound))
 
             if filter_choice == 3:  # remove filter
                 data = org_data
