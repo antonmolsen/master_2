@@ -6,7 +6,7 @@ Created on Mon Jun  7 22:15:28 2021
 @author: antonmolsen & nicolaikongstad
 """
 
-#modules import
+# modules import
 import numpy as np
 import matplotlib as plt
 from functions.displayMenu import *
@@ -28,20 +28,21 @@ menuItems = np.array(["Load data", "Filter data", "Show statistics", "Generate p
 while True:
     choice = displayMenu(menuItems)
     try:
-        if choice>1 and (np.size(data) == 0):
+        if choice > 1 and (np.size(data) == 0):
             raise
         # menu item chosen
         if choice == 1:
             # load data from txt
             while True:
                 try:
-                    dataTemp=input(
+                    dataTemp = input(
                         "Please enter the file you want to read. To go back, write nothing")
                     if dataTemp == '':
                         print('Returning to menu.')
                         break
                     data = dataLoad(dataTemp)[0]
-                    org_data = dataLoad(dataTemp)[1] # for removal of filters, we go back to this original data set
+                    # for removal of filters, we go back to this original data set
+                    org_data = dataLoad(dataTemp)[1]
                     print('Errornous data removed.')
                     break
                 except FileNotFoundError:
@@ -49,18 +50,23 @@ while True:
 
         if choice == 2:  # 2 Filter data
             # menuitems
-            subMenuItems=np.array(["Filter by bacteria type", "Filter by bounds of growth rate","Remove Filters"])
+            subMenuItems = np.array(
+                ["Filter by bacteria type", "Filter by bounds of growth rate", "Remove Filters"])
             # 1 Filter by bacteria type
             # 2 Filter by bounds of growth rate
 
-            filter_choice=displayMenu(subMenuItems)
+            filter_choice = displayMenu(subMenuItems)
 
             # choice of filter
             if filter_choice == 1:
                 print("Input comma-seperated list of bacterias you wish to research")
-                subSubMenuItems=np.array(["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
+                subSubMenuItems = np.array(
+                    ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
 
-                chosen_bacteria = displayMenu(subSubMenuItems)
+                for i in range(len(subSubMenuItems)):
+                    print("{:d}. {:s}".format(i+1, options[i]))
+
+                chosen_bacteria = inputString('Commaseparated list: ', '1234,')
                 data = dataFilterBacteria(data, chosen_bacteria)
 
             if filter_choice == 2:
@@ -69,7 +75,7 @@ while True:
 
                 data = dataFilterGrowthRate(data, lowerBound, upperBound)
 
-            if filter_choice == 3: # remove filters
+            if filter_choice == 3:  # remove filters
                 data = org_data
                 print("Filters removed succesfully")
 
@@ -77,11 +83,12 @@ while True:
             statMenuItems = np.array(["Mean Temperature", "Mean Growth rate", "Std Temperature",
                                       "Std Growth rate", "Rows", "Mean Cold Growth rate", "Mean Hot Growth rate"])
             statChoice = int(displayMenu(statMenuItems))
-            print("The {} is {}.".format(statMenuItems[statChoice - 1], dataStatistics(data, statChoice)))
+            print("The {} is {}.".format(
+                statMenuItems[statChoice - 1], dataStatistics(data, statChoice)))
 
         if choice == 4:
-           dataPlot(data)
-           print("Plots created succesfully")
+            dataPlot(data)
+            print("Plots created succesfully")
 
         if choice == 5:
             print("Program closed")
