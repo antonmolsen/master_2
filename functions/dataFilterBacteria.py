@@ -18,7 +18,7 @@ def dataFilterBacteria(data, bacteria):  # bacteria is str
 
     bacteria_list = [0, 0, 0]
 
-    for i in range(1, 5):
+    for i in '1234':
 
         if i in bacteria:
             accepted_bacteria = (int(i) == arr[:, 2])
