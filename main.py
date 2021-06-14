@@ -36,7 +36,7 @@ while True:
             while True:
                 try:
                     dataTemp = input(
-                        "Please enter the file you want to read. To go back, write nothing")
+                        "Please enter the file you want to read. To go back, write nothing: ")
                     if dataTemp == '':
                         print('Returning to menu.')
                         break
@@ -59,7 +59,7 @@ while True:
 
             # choice of filter
             if filter_choice == 1:
-                print("Input comma-seperated list of bacterias you wish to research")
+                print("Input comma-seperated list of bacterias you wish to research: ")
                 subSubMenuItems = np.array(["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
 
                 for i in range(len(subSubMenuItems)):
@@ -96,4 +96,4 @@ while True:
             print("Program closed")
             break
     except:
-        print('Please load data before researching data')
+        print('Please load data before researching data: ')
