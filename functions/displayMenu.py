@@ -34,7 +34,7 @@ def displayMenu(options):
 
 
 def inputString(promt, acceptable):
-    while(True):
+    while True:
         try:
             choice = input(promt)
             for i in choice:

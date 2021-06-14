@@ -64,9 +64,10 @@ while True:
                     ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
 
                 for i in range(len(subSubMenuItems)):
-                    print("{:d}. {:s}".format(i+1, options[i]))
+                    print("{:d}. {:s}".format(i+1, subSubMenuItems[i]))
 
                 chosen_bacteria = inputString('Commaseparated list: ', '1234,')
+
                 data = dataFilterBacteria(data, chosen_bacteria)
 
             if filter_choice == 2:
