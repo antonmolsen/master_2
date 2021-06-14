@@ -97,4 +97,10 @@ while True:
             print("Program closed")
             break
     except:
-        print('Please load data before researching data: ')
+        # If no data is found and the user tries to do data processing the
+        # program assumes all the data has been filtered away and tries to
+        # restore it.
+
+        print('No data found. Trying to restore data to original.')
+        data = org_data
+        print('If no data has been loaded, please load data.')
