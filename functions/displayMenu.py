@@ -32,7 +32,7 @@ def displayMenu(options):
             break
 
         except:
-            print('Please those a number from the list')
+            print('Please those a number from the list: ')
 
     return choice
 
@@ -49,5 +49,5 @@ def inputString(promt, acceptable):
                     raise
             break
         except:
-            print('Please only write numbers from the list.')
+            print('Please only write numbers from the list \n')
     return choice
