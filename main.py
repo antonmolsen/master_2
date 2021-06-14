@@ -60,11 +60,10 @@ while True:
             # choice of filter
             if filter_choice == 1:
                 print("Input comma-seperated list of bacterias you wish to research")
-                subSubMenuItems = np.array(
-                    ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
+                subSubMenuItems = np.array(["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
 
                 for i in range(len(subSubMenuItems)):
-                    print("{:d}. {:s}".format(i+1, options[i]))
+                    print("{:d}. {:s}".format(i+1, subSubMenuItems[i]))
 
                 chosen_bacteria = inputString('Comma separated list: ', '1234,')
                 data = dataFilterBacteria(data, chosen_bacteria)
