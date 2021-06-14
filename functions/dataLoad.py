@@ -1,14 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jun  6 17:48:37 2021
-
-@author: antonmolsen
-"""
-
-# dataLoad("test.txt")
-
-
 import numpy as np
 import pandas as pd
 
@@ -50,6 +39,6 @@ def dataLoad(filename):
             print("Error in line", i+1, ", not enough information")
 
     data = np.delete(data, 0, axis=0)  # removal of initial [0,0,0] array
-    org_data = data # original data. Is never changed in script
+    org_data = data  # original data. Is never changed in script
 
     return data, org_data
