@@ -58,7 +58,7 @@ while True:
             filter_choice = displayMenu(subMenuItems)
 
             # choice of filter
-            if filter_choice == 1:
+            if filter_choice == 1:  # bacteria type filter
                 print("Input comma-seperated list of bacterias you wish to research: ")
                 subSubMenuItems = np.array(
                     ["Salmonella enterica", "Bacillus cereus", "Listeria", "Brochothrix thermosphacta"])
