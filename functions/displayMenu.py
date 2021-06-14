@@ -42,5 +42,5 @@ def inputString(promt, acceptable):
                     raise
             break
         except:
-            print('Please only choose numbers from the list.')
+            print('Please only write numbers from the list.')
     return choice
