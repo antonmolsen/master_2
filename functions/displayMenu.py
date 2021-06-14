@@ -31,3 +31,4 @@ def displayMenu(options):
             print('Please those a number from the list')
 
     return choice
+
