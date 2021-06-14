@@ -66,7 +66,7 @@ while True:
                     print("{:d}. {:s}".format(i+1, subSubMenuItems[i]))
 
                 chosen_bacteria = inputString('Comma separated list: ', '1234,')
-                data = dataFilterBacteria(data, chosen_bacteria)
+                data = dataFilterBacteria(org_data, chosen_bacteria) #filters original data always
 
             if filter_choice == 2:
                 lowerBound = float(input("Please enter the lower bound"))
